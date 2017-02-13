@@ -41,7 +41,7 @@ class Awless < Formula
       In order to get awless completion, 
         [bash] you need to install `bash-completion` with brew.
         OR
-        [zsh], add the following line to your ~/.bashrc:
+        [zsh], add the following line to your ~/.zshrc:
           source #{HOMEBREW_PREFIX}/share/zsh/site-functions/_awless
       EOS
   end
