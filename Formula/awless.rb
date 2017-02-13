@@ -7,6 +7,12 @@ class Awless < Formula
   head "https://github.com/wallix/awless.git"
 
   depends_on "go" => :build
+  
+  bottle do
+    root_url "https://github.com/wallix/homebrew-awless/releases/download/0.0.10/"
+    cellar :any_skip_relocation
+    sha256 "a088eef1d24d378aa823a035ead44d77d52cdb2aa0a7ac17047c77e68a7b204b" => :sierra
+  end
 
   def install
     ENV["GOPATH"] = buildpath
