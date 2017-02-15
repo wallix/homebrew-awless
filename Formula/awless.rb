@@ -2,16 +2,16 @@ class Awless < Formula
   desc "The Mighty CLI for AWS"
   homepage "https://github.com/wallix/awless"
   url "https://github.com/wallix/awless.git",
-        :tag => "0.0.11",
-        :revision => "15cbc5e37bd3d163e1698921957fd0d34ceed723"
+        :tag => "0.0.12",
+        :revision => "fc49542ccd59b89347c6ac0802524f68d55c1c3b"
   head "https://github.com/wallix/awless.git"
 
   depends_on "go" => :build
   
   bottle do
-    root_url "https://github.com/wallix/homebrew-awless/releases/download/0.0.11/"
+    root_url "https://github.com/wallix/homebrew-awless/releases/download/0.0.12/"
     cellar :any_skip_relocation
-    sha256 "9946c417543e64f4075ee2fd75b4faaa559447523d2dafb981a3f342c27b51ea" => :sierra
+    sha256 "b57ebf0c0374cd9fdc7486956d6f5bf0a932a36e91c3d4bd2ee4fd09d021b763" => :sierra
   end
 
   def install
@@ -22,7 +22,7 @@ class Awless < Formula
 
     cd dir do
       # Make binary
-      system "go", "run", "release.go", "-tag","0.0.11","-brew","-arch","#{arch}", "-os","darwin"
+      system "go", "run", "release.go", "-tag","0.0.12","-brew","-arch","#{arch}", "-os","darwin"
       bin.install "awless"
 
       # Install bash completion
