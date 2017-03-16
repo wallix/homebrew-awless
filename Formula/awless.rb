@@ -1,19 +1,19 @@
 class Awless < Formula
-  version = "0.0.18"
-  
+  version = "v0.0.19"
+
   desc "The Mighty CLI for AWS"
   homepage "https://github.com/wallix/awless"
   url "https://github.com/wallix/awless.git",
         :tag => version
   head "https://github.com/wallix/awless.git"
 
-  depends_on "go" => :build
-  
   bottle do
     root_url "https://github.com/wallix/homebrew-awless/releases/download/#{version}"
     cellar :any_skip_relocation
-    sha256 "984e2566cfd1b4e341a497ffeb9c8ca1b4229f9af094987bddadcd3adc1babe3" => :sierra
+    sha256 "10f09a6d71945e823a12f5ab194487e17cc8b9cc7d33294669c91894190b2030" => :sierra
   end
+
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -23,28 +23,28 @@ class Awless < Formula
 
     cd dir do
       # Make binary
-      system "go", "run", "release.go", "-tag",version,"-brew","-arch","#{arch}", "-os","darwin"
+      system "go", "run", "release.go", "-tag", "v#{version}", "-brew", "-arch", "#{arch}", "-os", "darwin"
       bin.install "awless"
 
       # Install bash completion
       output = Utils.popen_read("#{bin}/awless completion bash")
       (bash_completion/"awless").write output
-      
+
       # Install zsh completion
       output = Utils.popen_read("#{bin}/awless completion zsh")
       (zsh_completion/"_awless").write output
     end
   end
-  
+
   def caveats
-      <<-EOS.undent
-      
-      In order to get awless completion, 
+    <<-EOS.undent
+
+      In order to get awless completion,
         [bash] you need to install `bash-completion` with brew.
         OR
         [zsh], add the following line to your ~/.zshrc:
           source #{HOMEBREW_PREFIX}/share/zsh/site-functions/_awless
-      EOS
+    EOS
   end
 
   test do
