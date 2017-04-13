@@ -1,5 +1,5 @@
 class Awless < Formula
-  version = "v0.0.21"
+  version = "v0.0.22"
 
   desc "The Mighty CLI for AWS"
   homepage "https://github.com/wallix/awless"
@@ -10,7 +10,7 @@ class Awless < Formula
   bottle do
     root_url "https://github.com/wallix/homebrew-awless/releases/download/#{version}"
     cellar :any_skip_relocation
-    sha256 "e6985fc15b9d2fd4068c58fa25de20781f9504461b9ca50189a74286fe82b503" => :sierra
+    sha256 "1e698adfead477baa0f9f3d6a0f48cedfb15e8b14c5e70881125f0878986e022" => :sierra
   end
 
   depends_on "go" => :build
