@@ -37,7 +37,7 @@ class Awless < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
 
       In order to get awless completion,
         [bash] you need to install `bash-completion` with brew.
